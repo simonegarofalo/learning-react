@@ -12,7 +12,7 @@ function Timer ({athlete = "Unknown", ...props}){
     // If the timer is running and no interval is already set, start a new interval
     if (isRunning) {
       if (intervalRef.current !== null) return;
-      // Set up the interval to increment count every second
+      // Set up the interval to increment count every millisecond
       intervalRef.current = setInterval(() => {
         setCount((prev) => prev + 0.001);
       }, 1);
@@ -30,8 +30,9 @@ function Timer ({athlete = "Unknown", ...props}){
 
   return (
     <>
-      <h2>{athlete}</h2>
-      <h1>{count.toFixed(3)}</h1>
+    <div className='timer-wrapper'>
+      <h3>{athlete}</h3>
+      <h4>{count.toFixed(3)}</h4>
       <div className="button-wrapper">
         <button onClick={() => setIsRunning(true)}>Start</button>
         <button onClick={() => setIsRunning(false)}>Pause</button>
@@ -43,6 +44,7 @@ function Timer ({athlete = "Unknown", ...props}){
         >
           Reset
         </button>
+      </div>
       </div>
     </>
   );
