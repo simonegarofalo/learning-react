@@ -12,7 +12,7 @@ export const ATHLETES = [
     slug: "simone-garofalo",
     stats: {
       age: "29",
-      height: "1,83",
+      height: "1,83cm",
       weight: "74kg",
       region: "Lombardia",
     },
@@ -24,7 +24,7 @@ export const ATHLETES = [
     slug: "salvatore-orlando",
     stats: {
       age: "35",
-      height: "1,85",
+      height: "1,85cm",
       weight: "84kg",
       region: "Sicilia",
     },
@@ -36,7 +36,7 @@ export const ATHLETES = [
     slug: "carmelo-scarantino",
     stats: {
       age: "36",
-      height: "1,80",
+      height: "1,80cm",
       weight: "82kg",
       region: "Sicilia",
     },
@@ -48,7 +48,7 @@ export const ATHLETES = [
     slug: "giancarlo-peluso",
     stats: {
       age: "34",
-      height: "1,79",
+      height: "1,79cm",
       weight: "79kg",
       region: "Campania",
     },

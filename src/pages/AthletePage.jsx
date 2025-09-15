@@ -1,7 +1,12 @@
 import { useParams, Link } from "react-router";
 import { ATHLETES } from "/data/athletes.js";
 
+import { useTheme } from "../context/ThemeContext.jsx";
+import ThemeSwitcher from "../components/ThemeSwitcher"
+
+
 function AthletePage() {
+  const { theme } = useTheme();
   const { slug } = useParams();
   const athlete = ATHLETES.find((a) => a.slug === slug);
   const athleteStats = athlete.stats;
@@ -10,7 +15,9 @@ function AthletePage() {
 
   return (
     <>
-      <div className="athlete-card">
+    <ThemeSwitcher />
+    <div className={`athlete-page ${theme}`}>
+      <div className={`athlete-card ${theme}`}>
         <div className="card-data">
           <img
             src={athlete.avatar}
@@ -19,7 +26,7 @@ function AthletePage() {
           />
           <h2>{athlete.name}</h2>
         </div>
-        <h3>Stats:</h3>
+        <h3>Stats</h3>
         <ul className="stats-list">
           {Object.entries(athleteStats).map(([key, value]) => (
             <li key={key}>
@@ -28,7 +35,8 @@ function AthletePage() {
           ))}
         </ul>
       </div>
-      <Link to="/">Back to list</Link>
+      <Link to="/" className={`return-button ${theme}`}>Back to list</Link>
+      </div>
     </>
   );
 }

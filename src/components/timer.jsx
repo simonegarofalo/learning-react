@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { DEFAULT_ATHLETE } from "/data/athletes.js";
 
 import { useState, useEffect, useRef } from "react";
+import { useTheme } from "../context/ThemeContext.jsx";
 
 import openNew from "/assets/icons/open-new.svg";
 
@@ -20,6 +21,7 @@ function formatTime(ms) {
 }
 
 function Timer({ athlete = DEFAULT_ATHLETE, ...props }) {
+  const { theme } = useTheme();
   const [elapsed, setElapsed] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -50,7 +52,7 @@ function Timer({ athlete = DEFAULT_ATHLETE, ...props }) {
   }, [isRunning]);
 
   return (
-    <div className="timer-wrapper">
+    <div className={`timer-wrapper ${theme}`}>
       <img src={athlete.avatar} alt={athlete.name} className="athlete-avatar" />
       <div>
         <h3>{athlete.name}</h3>
@@ -61,7 +63,7 @@ function Timer({ athlete = DEFAULT_ATHLETE, ...props }) {
           </div>
         </Link>
       </div>
-      <h4>{formatTime(elapsed)}</h4>
+      <h3>{formatTime(elapsed)}</h3>
       <div className="button-wrapper">
         <button
           onClick={() => {
